@@ -18,7 +18,7 @@ function Header() {
     return (
         <MDBNavbar expand="lg" light bgColor="light">
                 <MDBContainer>
-                    <MDBNavbarBrand href="#">Scissor</MDBNavbarBrand>
+                    <MDBNavbarBrand href="/">Scissor</MDBNavbarBrand>
                     <MDBNavbarToggler
                         type="button"
                         aria-expanded="false"
