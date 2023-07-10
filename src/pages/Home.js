@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 import { CopyToClipboard } from "react-copy-to-clipboard"
 // import useAuth from "../hooks/UseAuth";
-import saveas from 'file-saver'
+// import saveas from 'file-saver'
 
 import {
     MDBInput,
@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
     // const { auth } = useAuth();
     const token = localStorage.getItem('accessToken')
-    const refresh = localStorage.getItem('refreshToken')
+    // const refresh = localStorage.getItem('refreshToken')
     const navigate = useNavigate();
     // console.log(token, refresh)
     const [errorMessage, setErrorMessage] = useState(

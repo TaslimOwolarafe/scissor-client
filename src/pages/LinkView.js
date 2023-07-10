@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import api from "../api";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 const RedirectHandler= ()=>{
-        const { pathname } = useLocation();
+        // const { pathname } = useLocation();
         const Navigate = useNavigate();
         let {link_id} = useParams();
 
-        const [urlData, setUrlData] = useState({});
+        // const [urlData, setUrlData] = useState({});
         
         useEffect(()=>{
             const getClientInformation = () => {

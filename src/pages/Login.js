@@ -10,9 +10,7 @@ import {
     MDBCol,
     MDBRow,
     MDBBtn,
-    MDBIcon,
     MDBInput,
-    MDBCheckbox
   }
   from 'mdb-react-ui-kit';
 
@@ -81,19 +79,19 @@ import {
     }, [userDetails])
 
     return (
-      <diiv>
+      <div>
         <Header />
         <MDBContainer fluid className="p-3 my-5">
     
           <MDBRow>
     
             <MDBCol col='10' md='6'>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone" />
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone" />
             </MDBCol>
     
             <MDBCol col='4' md='6'>
             <h3 className={err ? error_notification : normal_notification}>{errorMessage}</h3>
-              <MDBInput wrapperClass='mb-4' label='Email address' name="email" id='formControlLg' type='email' required onChange={handleChange} size="lg"/>
+              <MDBInput wrapperClass='mb-4' label='Email address' name="email" id='formControlL' type='email' required onChange={handleChange} size="lg"/>
               <MDBInput wrapperClass='mb-4' label='Password' name="password" id='formControlLg' type='password' required onChange={handleChange} size="lg"/>
     
     
@@ -110,7 +108,7 @@ import {
           </MDBRow>
     
         </MDBContainer>
-        </diiv>
+        </div>
       );
     }
     
