@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 import { CopyToClipboard } from "react-copy-to-clipboard"
 // import useAuth from "../hooks/UseAuth";
-// import saveas from 'file-saver'
+import {saveAs} from 'file-saver'
 
 import {
     MDBInput,
@@ -16,6 +16,10 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+
+    const downloadImage = (url, name) => {
+        saveAs(url, name)
+    }
     // const { auth } = useAuth();
     const token = localStorage.getItem('accessToken')
     // const refresh = localStorage.getItem('refreshToken')
@@ -95,12 +99,13 @@ function Home() {
 
     return (
         <div style={{ height: "100%" }}>
+        {/* // <div> */}
             <Header />
             <MDBContainer
                 className="gy-5 d-flex justify-content-center"
                 style={{
                     // height: "75%",
-                    width: "700px",
+                    width: "70%",
                     margin: "50px auto",
                     display: "flex",
                     flexDirection: "column",
@@ -137,7 +142,7 @@ function Home() {
                         Generate
                     </MDBBtn>
                 </MDBContainer>
-                <MDBContainer style={{margin: "50px 0", display: "flex", justifyContent:"space-between", alignItems:'center'}}>
+                <MDBContainer style={{margin: "50px 0", display: "flex", flexDirection: 'column',justifyContent:"space-between", alignItems:'center'}}>
                     <figure className="figure">
                         <img
                             height={'120px'} width={'120px'}
@@ -149,14 +154,14 @@ function Home() {
                             QR Code
                         </figcaption>
                         <MDBIcon onClick={()=>{setQRCodeSrc(`${qrEndpoint}?data=${encodeURIComponent(shortLink)}&size=${size}`)}} fas icon="redo" />
-                        <a style={{ margin: "auto 10px" }} id="download_image_1" href={qrCodeSrc} download>Download</a>
+                        <a style={{ margin: "auto 10px" }} id="download_image_1" href={qrCodeSrc} onClick={downloadImage} download>Download</a>
                     </figure>
-                    <div style={{height:'fit-content'}}>
+                    <div style={{height:'fit-content', display: 'flex'}}>
                     <MDBInput className="mb-1" label='Link goes here..' value={shortLink} id='form1' type='text' />
                         {/* <p>{shortLink}</p> */}
                         <CopyToClipboard text={shortLink} onCopy={onCopyText}>
                             <div className="copy-area">
-                                <MDBBtn color='info btn-sm' className={`copy-feedback ${isCopied ? "active" : ""}`}>
+                                <MDBBtn color='info btn-sm' style={{ marginLeft: '5px'}} className={`copy-feedback ${isCopied ? "active" : ""}`}>
                                     {copyDetail}
                                 </MDBBtn>
                             </div>
